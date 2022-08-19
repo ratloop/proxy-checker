@@ -68,6 +68,14 @@ if __name__ == "__main__":
     Utils.clear()
 
     try:
+        os.makedirs(f"{current_directory}\\output", exist_ok=True)
+    except Exception:
+        Utils.clear()
+        print(f"{Fore.RED}Error making output folder{Style.RESET_ALL}")
+        sleep(2)
+        os._exit(1)
+
+    try:
         print(f"{Fore.CYAN}{Style.BRIGHT}PROXIES{Fore.WHITE}{Style.RESET_ALL}")
         proxyFiles = os.listdir(f"{current_directory}\\proxies")
         proxylist = []
@@ -83,7 +91,7 @@ if __name__ == "__main__":
             print(f"{Fore.RED}Add proxy text file(s) into the proxies folder{Style.RESET_ALL}")
             sleep(2)
             os._exit(1)
-    except Exception as e:
+    except Exception:
         Utils.clear()
         print(f"{Fore.RED}Error with proxy file(s){Style.RESET_ALL}")
         sleep(2)
@@ -102,7 +110,7 @@ if __name__ == "__main__":
     try:
         proxyfile = proxylist[proxyInput-1]
         ProxyManager.load_queue(task_queue, f"{current_directory}\\proxies\\{proxyfile}")
-    except Exception as e:
+    except Exception:
         Utils.clear()
         print(Fore.RED+"Error formatting proxy file(s)"+Style.RESET_ALL)
         sleep(2)
