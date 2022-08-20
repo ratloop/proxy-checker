@@ -1,7 +1,7 @@
 # Asynchronous Proxy Checker
 
 Checks if HTTP proxies are working <br />
-Working with proxies that have authentication
+Working with proxies that use authentication
 
 # Requirements
 
